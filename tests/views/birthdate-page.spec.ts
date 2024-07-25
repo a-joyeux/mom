@@ -1,11 +1,16 @@
-import { beforeEach, describe, expect, it } from 'vitest'
+import { beforeEach, describe, expect, it, type Mock, vitest } from 'vitest'
 import { shallowMount, VueWrapper } from '@vue/test-utils'
 import BirthdatePage from '../../src/views/birthdate-page.vue'
 
 describe('Birthdate Page', () => {
     let wrapper: VueWrapper
+    let mocks: { birthdate: Mock; birthdateDigit: Mock }
     beforeEach(() => {
-        wrapper = shallowMount(BirthdatePage)
+        mocks = {
+            birthdate: vitest.fn(),
+            birthdateDigit: vitest.fn()
+        }
+        wrapper = shallowMount(BirthdatePage, { global: { provide: { ...mocks } } })
     })
     it('should display a date input', () => {
         expect(wrapper.find('input').attributes()).toEqual({ type: 'date' })
@@ -15,15 +20,10 @@ describe('Birthdate Page', () => {
         expect(wrapper.find('span').text()).toBe('Date de naissance')
     })
 
-    it('should display result on click', async () => {
+    it('should call birthdate methods on input', async () => {
         await wrapper.find('input').setValue('1991-01-20')
 
-        expect(wrapper.find('[data-testid="first-method-result"]').text()).toBe('5')
-    })
-
-    it('should display result on click', async () => {
-        await wrapper.find('input').setValue('1991-01-20')
-
-        expect(wrapper.find('[data-testid="second-method-result"]').text()).toBe('5')
+        expect(mocks.birthdate).toHaveBeenCalledWith('1991-01-20')
+        expect(mocks.birthdateDigit).toHaveBeenCalledWith('1991-01-20')
     })
 })
