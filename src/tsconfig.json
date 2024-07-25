@@ -1,0 +1,10 @@
+{
+    "extends": "@vue/tsconfig/tsconfig.dom.json",
+    "include": ["main.ts"],
+    "compilerOptions": {
+        "baseUrl": "..",
+        "strict": true,
+        "types": ["vite/client"],
+        "lib": ["es2021", "DOM", "DOM.Iterable"]
+    }
+}

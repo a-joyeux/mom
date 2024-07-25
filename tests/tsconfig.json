@@ -1,0 +1,8 @@
+{
+    "extends": "../src/tsconfig.json",
+    "include": ["**/*.ts", "../src/**/*.vue"],
+    "compilerOptions": {
+        "lib": ["es2021"],
+        "types": ["node", "jsdom", "vite/client"]
+    }
+}
