@@ -15,16 +15,15 @@ describe('Birthdate Page', () => {
         expect(wrapper.find('span').text()).toBe('Date de naissance')
     })
 
-    it('should display a button', () => {
-        expect(wrapper.find('button').text()).toBe('Go')
+    it('should display result on click', async () => {
+        await wrapper.find('input').setValue('1991-01-20')
+
+        expect(wrapper.find('[data-testid="first-method-result"]').text()).toBe('5')
     })
 
     it('should display result on click', async () => {
         await wrapper.find('input').setValue('1991-01-20')
-        const button = wrapper.find('button')
 
-        await button.trigger('click')
-
-        expect(wrapper.find('[data-testid="result"]').text()).toBe('1991-01-20')
+        expect(wrapper.find('[data-testid="second-method-result"]').text()).toBe('5')
     })
 })

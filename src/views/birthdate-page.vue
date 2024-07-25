@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { birthdate, birthdateDigit } from '../composables/birthdate'
 
-const result = ref()
+const result = ref('')
 const updateResult = (event: Event) => {
     const target = event.target as HTMLInputElement
     result.value = target.value
@@ -11,6 +12,6 @@ const updateResult = (event: Event) => {
 <template>
     <span>Date de naissance</span>
     <input @input="updateResult" type="date" />
-    <button>Go</button>
-    <div data-testid="result">{{ result }}</div>
+    <div data-testid="first-method-result">{{ birthdate(result) }}</div>
+    <div data-testid="second-method-result">{{ birthdateDigit(result) }}</div>
 </template>
