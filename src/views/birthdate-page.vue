@@ -12,12 +12,12 @@ const updateResult = (event: Event) => {
 </script>
 
 <template>
-    <div class="p-4 flex flex-col gap-2 bg-red-500">
-        <div class="flex gap-4">
+    <div class="p-4 flex flex-col gap-2 rounded border shadow-lg bg-white">
+        <div class="flex gap-4 items-center">
             <span>Date de naissance</span>
-            <input @input="updateResult" type="date" />
+            <input class="bg-transparent border px-3 py-0.5" @input="updateResult" type="date" />
         </div>
-        <div data-testid="first-method-result">{{ firstMethod(result) }}</div>
-        <div data-testid="second-method-result">{{ secondMethod(result) }}</div>
+        <div data-testid="first-method-result">{{ 'Première méthode : ' + firstMethod(result) }}</div>
+        <div data-testid="second-method-result">{{ 'Seconde méthode : ' + secondMethod(result) }}</div>
     </div>
 </template>

@@ -26,4 +26,13 @@ describe('Birthdate Page', () => {
         expect(mocks.birthdate).toHaveBeenCalledWith('1991-01-20')
         expect(mocks.birthdateDigit).toHaveBeenCalledWith('1991-01-20')
     })
+
+    it('should display results', async () => {
+        mocks.birthdate.mockReturnValue('5')
+        mocks.birthdateDigit.mockReturnValue('5')
+        await wrapper.find('input').setValue('1991-01-20')
+
+        expect(wrapper.find('[data-testid="first-method-result"]').text()).toBe('Première méthode : 5')
+        expect(wrapper.find('[data-testid="second-method-result"]').text()).toBe('Seconde méthode : 5')
+    })
 })
