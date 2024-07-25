@@ -1,3 +1,6 @@
 <script setup lang="ts"></script>
 
-<template><input type="date" /></template>
+<template>
+    <span>Date de naissance</span>
+    <input type="date" />
+</template>
