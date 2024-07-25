@@ -13,7 +13,7 @@ describe('Birthdate Page', () => {
         wrapper = shallowMount(BirthdatePage, { global: { provide: { ...mocks } } })
     })
     it('should display a date input', () => {
-        expect(wrapper.find('input').attributes()).toEqual({ type: 'date' })
+        expect(wrapper.find('input').attributes().type).toEqual('date')
     })
 
     it('should display label', () => {
