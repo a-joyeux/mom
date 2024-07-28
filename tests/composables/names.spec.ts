@@ -9,7 +9,8 @@ describe('Names', () => {
             completeName: 16,
             reducedVowel: 3,
             reducedConsonant: 4,
-            reducedCompleteName: 16
+            reducedCompleteName: 16,
+            reducedDeltaVowel: 0
         })
     })
 
@@ -20,7 +21,8 @@ describe('Names', () => {
             completeName: 11,
             reducedVowel: 0,
             reducedConsonant: 11,
-            reducedCompleteName: 11
+            reducedCompleteName: 11,
+            reducedDeltaVowel: 0
         })
     })
 
@@ -31,7 +33,8 @@ describe('Names', () => {
             completeName: 20,
             reducedVowel: 9,
             reducedConsonant: 11,
-            reducedCompleteName: 2
+            reducedCompleteName: 2,
+            reducedDeltaVowel: 9
         })
     })
 })
