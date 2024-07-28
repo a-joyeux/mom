@@ -8,12 +8,20 @@ describe('Names', () => {
             consonant: 4,
             completeName: 16,
             reducedVowel: 3,
-            reducedConsonant: 4
+            reducedConsonant: 4,
+            reducedCompleteName: 16
         })
     })
 
     it('should give correct value for one letter with special number', () => {
-        expect(names('K')).toEqual({ vowel: 0, consonant: 11, completeName: 11, reducedVowel: 0, reducedConsonant: 11 })
+        expect(names('K')).toEqual({
+            vowel: 0,
+            consonant: 11,
+            completeName: 11,
+            reducedVowel: 0,
+            reducedConsonant: 11,
+            reducedCompleteName: 11
+        })
     })
 
     it('should give correct value for special number', () => {
@@ -22,7 +30,8 @@ describe('Names', () => {
             consonant: 11,
             completeName: 20,
             reducedVowel: 9,
-            reducedConsonant: 11
+            reducedConsonant: 11,
+            reducedCompleteName: 2
         })
     })
 })

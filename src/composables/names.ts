@@ -58,6 +58,7 @@ export const names = (name: string) => {
         consonant,
         completeName: vowel + consonant,
         reducedVowel: sumDigit(vowel),
-        reducedConsonant: sumDigit(consonant)
+        reducedConsonant: sumDigit(consonant),
+        reducedCompleteName: sumDigit(vowel + consonant)
     }
 }
