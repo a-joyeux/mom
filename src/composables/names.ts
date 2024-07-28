@@ -39,10 +39,11 @@ const isConsonant = (letter: string): letter is Consonant => {
 }
 
 export const names = (name: string) => {
+    const splitName = [...name.toUpperCase()]
     let consonant = 0
     let vowel = 0
 
-    ;[...name.toUpperCase()].forEach((letter) => {
+    splitName.forEach((letter) => {
         if (isVowel(letter)) {
             vowel += alphabet[letter]
         } else if (isConsonant(letter)) {
