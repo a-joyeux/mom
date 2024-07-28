@@ -3,6 +3,6 @@ import { names } from '../../src/composables/names'
 
 describe('Names', () => {
     it('should give value for vowel', () => {
-        expect(names('TOTO')).toBe(12)
+        expect(names('TOTO')).toEqual({ vowel: 12, consonant: 4 })
     })
 })

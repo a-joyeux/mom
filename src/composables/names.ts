@@ -28,14 +28,27 @@ const alphabet = {
 } as const
 
 type Vowel = 'A' | 'E' | 'I' | 'O' | 'U' | 'Y'
+type Consonant = Exclude<keyof typeof alphabet, Vowel>
 
-const isVowel = (x: string): x is Vowel => /[aeiouyAEIOUY]/.test(x)
+const isVowel = (letter: string): x is Vowel => {
+    return ['A', 'E', 'I', 'O', 'U', 'Y'].includes(letter)
+}
+
+const isConsonant = (letter: string): x is Consonant => {
+    return !isVowel(x) && letter in alphabet
+}
 
 export const names = (name: string) => {
-    return [...name].reduce((sum, letter) => {
+    let consonant = 0
+    let vowel = 0
+
+    ;[...name.toUpperCase()].forEach((letter) => {
         if (isVowel(letter)) {
-            sum += alphabet[letter]
+            vowel += alphabet[letter as Vowel]
+        } else if (isConsonant(letter)) {
+            consonant += alphabet[letter as Consonant]
         }
-        return sum
-    }, 0)
+    })
+
+    return { vowel, consonant }
 }
