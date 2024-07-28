@@ -56,6 +56,22 @@ export const findFirstAndLastVowel = (name: string): { firstVowel: number; lastV
     return { firstVowel, lastVowel }
 }
 
+export const findFirstAndLastConsonant = (name: string): { firstConsonant: number; lastConsonant: number } => {
+    let firstConsonant = 0
+    let lastConsonant = 0
+
+    for (const letter of name.toUpperCase()) {
+        if (isConsonant(letter)) {
+            if (!firstConsonant) {
+                firstConsonant = alphabet[letter]
+            }
+            lastConsonant = alphabet[letter]
+        }
+    }
+
+    return { firstConsonant: firstConsonant, lastConsonant: lastConsonant }
+}
+
 export const names = (name: string) => {
     const splitName = [...name.toUpperCase()]
     let consonant = 0
@@ -69,6 +85,7 @@ export const names = (name: string) => {
         }
     })
     const deltaVowel = findFirstAndLastVowel(name)
+    const deltaConsonant = findFirstAndLastConsonant(name)
     return {
         vowel,
         consonant,
@@ -76,6 +93,7 @@ export const names = (name: string) => {
         reducedVowel: sumDigit(vowel),
         reducedConsonant: sumDigit(consonant),
         reducedCompleteName: sumDigit(vowel + consonant),
-        reducedDeltaVowel: sumDigit(Math.abs(deltaVowel.firstVowel - deltaVowel.lastVowel))
+        reducedDeltaVowel: sumDigit(Math.abs(deltaVowel.firstVowel - deltaVowel.lastVowel)),
+        reducedDeltaConsonant: sumDigit(Math.abs(deltaConsonant.firstConsonant - deltaConsonant.lastConsonant))
     }
 }
