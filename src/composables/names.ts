@@ -40,9 +40,11 @@ const isConsonant = (letter: string): letter is Consonant => {
     return !isVowel(letter) && letter in alphabet
 }
 
-export const findFirstAndLastVowel = (name: string): { firstVowel: number; lastVowel: number } => {
+export const findFirstAndLastVowelAndConsonant = (name: string) => {
     let firstVowel = 0
     let lastVowel = 0
+    let firstConsonant = 0
+    let lastConsonant = 0
 
     for (const letter of name.toUpperCase()) {
         if (isVowel(letter)) {
@@ -50,18 +52,7 @@ export const findFirstAndLastVowel = (name: string): { firstVowel: number; lastV
                 firstVowel = alphabet[letter]
             }
             lastVowel = alphabet[letter]
-        }
-    }
-
-    return { firstVowel, lastVowel }
-}
-
-export const findFirstAndLastConsonant = (name: string): { firstConsonant: number; lastConsonant: number } => {
-    let firstConsonant = 0
-    let lastConsonant = 0
-
-    for (const letter of name.toUpperCase()) {
-        if (isConsonant(letter)) {
+        } else if (isConsonant(letter)) {
             if (!firstConsonant) {
                 firstConsonant = alphabet[letter]
             }
@@ -69,9 +60,8 @@ export const findFirstAndLastConsonant = (name: string): { firstConsonant: numbe
         }
     }
 
-    return { firstConsonant: firstConsonant, lastConsonant: lastConsonant }
+    return { firstVowel, lastVowel, firstConsonant, lastConsonant }
 }
-
 export const names = (name: string) => {
     const splitName = [...name.toUpperCase()]
     let consonant = 0
@@ -84,8 +74,7 @@ export const names = (name: string) => {
             consonant += alphabet[letter]
         }
     })
-    const deltaVowel = findFirstAndLastVowel(name)
-    const deltaConsonant = findFirstAndLastConsonant(name)
+    const deltas = findFirstAndLastVowelAndConsonant(name)
     return {
         vowel,
         consonant,
@@ -93,7 +82,7 @@ export const names = (name: string) => {
         reducedVowel: sumDigit(vowel),
         reducedConsonant: sumDigit(consonant),
         reducedCompleteName: sumDigit(vowel + consonant),
-        reducedDeltaVowel: sumDigit(Math.abs(deltaVowel.firstVowel - deltaVowel.lastVowel)),
-        reducedDeltaConsonant: sumDigit(Math.abs(deltaConsonant.firstConsonant - deltaConsonant.lastConsonant))
+        reducedDeltaVowel: sumDigit(Math.abs(deltas.firstVowel - deltas.lastVowel)),
+        reducedDeltaConsonant: sumDigit(Math.abs(deltas.firstConsonant - deltas.lastConsonant))
     }
 }
