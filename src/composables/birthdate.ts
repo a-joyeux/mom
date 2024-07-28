@@ -1,6 +1,6 @@
 const specialNumbers = new Set([11, 13, 14, 16, 19, 22, 33])
 const digitalRoot = (number: number) => ((number - 1) % 9) + 1
-const sumDigit = (number: number) => {
+export const sumDigit = (number: number) => {
     while (number > 9 && !specialNumbers.has(number)) {
         number = number
             .toString()

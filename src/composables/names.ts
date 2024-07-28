@@ -1,3 +1,5 @@
+import { sumDigit } from './birthdate'
+
 const alphabet = {
     A: 1,
     B: 2,
@@ -51,5 +53,11 @@ export const names = (name: string) => {
         }
     })
 
-    return { vowel, consonant, completeName: vowel + consonant }
+    return {
+        vowel,
+        consonant,
+        completeName: vowel + consonant,
+        reducedVowel: sumDigit(vowel),
+        reducedConsonant: sumDigit(consonant)
+    }
 }
