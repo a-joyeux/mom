@@ -13,7 +13,7 @@ const updateResult = (event: Event) => {
 <template>
     <div class="p-4 flex flex-col gap-2 rounded border shadow-lg bg-white">
         <div class="flex gap-4 items-center">
-            <span>Prénoms et nom complets tels qu'indiqué sur l'acte de naissance:</span>
+            <span>Prénoms et nom complets</span>
             <input class="bg-transparent border px-3 py-0.5" @input="updateResult" type="text" />
         </div>
         <div data-testid="complete-name-before">

@@ -26,7 +26,7 @@ describe('Names Page', () => {
     })
 
     it('should display label', () => {
-        expect(wrapper.find('span').text()).toBe("Prénoms et nom complets tels qu'indiqué sur l'acte de naissance:")
+        expect(wrapper.find('span').text()).toBe('Prénoms et nom complets')
     })
 
     it('should call names methods on input', async () => {
