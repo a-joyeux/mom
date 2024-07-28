@@ -69,7 +69,6 @@ export const names = (name: string) => {
         }
     })
     const deltaVowel = findFirstAndLastVowel(name)
-    console.log(deltaVowel)
     return {
         vowel,
         consonant,
@@ -77,6 +76,6 @@ export const names = (name: string) => {
         reducedVowel: sumDigit(vowel),
         reducedConsonant: sumDigit(consonant),
         reducedCompleteName: sumDigit(vowel + consonant),
-        reducedDeltaVowel: sumDigit(deltaVowel.firstVowel - deltaVowel.lastVowel)
+        reducedDeltaVowel: sumDigit(Math.abs(deltaVowel.firstVowel - deltaVowel.lastVowel))
     }
 }

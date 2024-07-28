@@ -34,7 +34,19 @@ describe('Names', () => {
             reducedVowel: 9,
             reducedConsonant: 11,
             reducedCompleteName: 2,
-            reducedDeltaVowel: 9
+            reducedDeltaVowel: 0
+        })
+    })
+
+    it('should give correct value when delta of vowel is negative', () => {
+        expect(names('EI')).toEqual({
+            vowel: 14,
+            consonant: 0,
+            completeName: 14,
+            reducedVowel: 14,
+            reducedConsonant: 0,
+            reducedCompleteName: 14,
+            reducedDeltaVowel: 4
         })
     })
 })
