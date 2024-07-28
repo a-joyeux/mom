@@ -17,6 +17,7 @@ const updateResult = (event: Event) => {
             <span>Date de naissance</span>
             <input class="bg-transparent border px-3 py-0.5" @input="updateResult" type="date" />
         </div>
+        <hr />
         <div data-testid="first-method-result">{{ 'Première méthode : ' + firstMethod(result) }}</div>
         <div data-testid="second-method-result">{{ 'Seconde méthode : ' + secondMethod(result) }}</div>
     </div>

@@ -16,6 +16,7 @@ const updateResult = (event: Event) => {
             <span>Prénoms et nom complets</span>
             <input class="bg-transparent border px-3 py-0.5" @input="updateResult" type="text" />
         </div>
+        <hr />
         <div data-testid="complete-name-before">
             {{ 'Nom entier avant réduction : ' + nameFormula(result).completeName }}
         </div>
